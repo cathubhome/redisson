@@ -22,7 +22,7 @@ public class RedissonApplicationTests {
 	public void contextLoads() throws InterruptedException {
 		CountDownLatch startSignal = new CountDownLatch(1);
 		CountDownLatch doneSignal = new CountDownLatch(5);
-		for (int i = 0; i < 100; ++i) { // create and start threads
+		for (int i = 0; i < 5; ++i) { // create and start threads
 			new Thread(new Worker(startSignal, doneSignal)).start();
 		}
 		System.out.println("startSignal countdown execute");
@@ -63,7 +63,7 @@ public class RedissonApplicationTests {
 		void doTask() {
 			System.out.println(Thread.currentThread().getName() + " start");
 			Random random = new Random();
-			int _int = random.nextInt(200);
+			int _int = random.nextInt(1000);
 			System.out.println(Thread.currentThread().getName() + " sleep " + _int + "millis");
 			try {
 				Thread.sleep(_int);
