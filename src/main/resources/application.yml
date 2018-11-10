@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: redlock
+
+server:
+  port: 800
+  tomcat:
+    accesslog:
+      enabled: true
+      basedir: /logs
+      pattern: '%h %l %u %t "%r" %s %b %D'
+      prefix: access_log
+      directory: /logs/accesslog
